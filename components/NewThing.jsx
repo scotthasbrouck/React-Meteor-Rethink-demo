@@ -9,7 +9,7 @@ NewThing = ReactMeteor.createClass({
 
 	render: function() {
 		return (
-			<form className="row" onSubmit={ this.addThing }>
+			<form onSubmit={ this.addThing }>
 				<div className="input-field">
 					<input ref="newThing" id="new-thing-input" type="text"></input>
 					<label htmlFor="new-thing-input">New thing</label>
