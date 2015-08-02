@@ -1,1 +1,4 @@
 /* CSS declarations go here */
+.collection-item {
+	cursor: pointer;
+}

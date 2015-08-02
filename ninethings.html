@@ -1,14 +1,18 @@
 <head>
-  <title>ninethings</title>
+	<title>do nine things</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<nav>
+		<div class="nav-wrapper deep-purple lighten-1">
+			<span class="brand-logo center">do nine things every day</span>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><i class="fa fa-github"></i></li>
+				<li><a href="sass.html">Fork this shit</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container section">
+		{{> ThingsList }}
+	</div>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>

@@ -1,23 +1,25 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
+Things = new Meteor.Collection('things');
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+	Meteor.publish("things", function() {
+		return Things.find();
+	});
 }
+
+Meteor.methods({
+	addThing: function(thing) {
+		Things.insert({
+			name: thing,
+			done: false,
+			createdAt: new Date()
+		});
+	},
+
+	updateThing: function(thingId, done) {
+		Things.update(thingId, { $set: { done: done } });
+	},
+
+	deleteThing: function(thingId) {
+		Things.remove(thingId);
+	}
+});
